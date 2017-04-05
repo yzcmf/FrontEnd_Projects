@@ -1,0 +1,369 @@
+@charset "utf-8";
+/*
+---------------------------------------
+# Device: PC
+# File: css/master.css
+# Version: 1.25
+# Update: 2012.10.22
+---------------------------------------
+*/
+
+/*-----------------------------------
+Common
+-----------------------------------*/
+html, body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, input { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6, pre, code, address, caption, cite, code, em, strong, th { font-size: 1em; font-style: normal; font-weight:normal; }
+html { height: 100%; overflow-y:scroll; }
+body { height: 100%; background: #f5f5f5; font-family:sans-serif; line-height: 1.2; font-size:14px; color: #333333; }
+img { border: none }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+li { margin: 0; padding: 0; }
+table { border-collapse: collapse; border-spacing: 0; font-size: inherit; font: 100%; }
+caption,
+th { text-align: left }
+form label { cursor: pointer }
+input { vertical-align: middle }
+select option { padding: 0 5px }
+* html a { zoom: 1 }
+a { text-decoration: none; color: #0066ff; }
+a:visited { text-decoration: none; color: #0066ff; }
+a:hover { text-decoration: underline }
+.container { position: relative; overflow: hidden; _overflow: visible; margin: 0 auto; height: 100%; min-height: 100%; width: 950px; background: #ffffff url(../img/bg.png) repeat-y left top; }
+body > .container { height: auto; }
+
+
+/*-----------------------------------
+Menu Area (left)
+-----------------------------------*/
+.header { float: left; padding: 0 15px; width: 270px; background-color: #e6e6e6; }
+.header h1 { padding: 20px 10px 0 10px }
+.header h1 .logo { display: block }
+.header h1 .logo img { width: 96px; height: 17px; vertical-align: bottom; }
+.header h1 a.title { display: inline-block; margin-top: 79px; font-size: 34px; color: #101010; }
+.header h1 a.title:hover { text-decoration: none }
+* html .header h1 a.title { line-height: 1.4 }
+.header .nav { padding-bottom: 70px; padding-top: 9px; }
+.header .nav li { margin-top: 10px }
+.header .nav li a { display: block; padding: 12px 9px 8px 46px; border: 1px solid #e6e6e6; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; background-repeat: no-repeat; background-position: left center; font-size: 24px; color: #333333; }
+.xp .header .nav li a { padding-top: 10px; padding-bottom: 10px; }
+.mac .header .nav li a { padding-top: 11px; padding-bottom: 9px; }
+.header .nav li.howtouse a { background-image: url(../img/icon_nav_howtouse.png) }
+.header .nav li.faq a { background-image: url(../img/icon_nav_faq.png) }
+.header .nav li.contentslist a { background-image: url(../img/icon_nav_contentslist.png) }
+.header .nav li li { margin-top: 0 }
+.header .nav li li a { padding: 9px 16px 8px 16px; background-image: none !important; font-size: 16px; }
+.header .nav li a:hover { border-color: #84acdd; background-color: #dfeeff; text-decoration: none; }
+.header .nav li a.active { border-color: #d4d4d4; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; background-color: #d2d2d2; }
+
+
+/*-----------------------------------
+Contents Area (right)
+-----------------------------------*/
+.section { float: left; position: relative; padding: 0 25px 60px 25px; width: 600px; }
+.section h1 { padding: 19px 216px 0 0; word-wrap: break-word; color:#101010; }
+.section h1 .category-name { font-size: 15px }
+.section h1 .model-name { display: block; padding-top: 1px; font-size: 20px; }
+.section h1 .model-name .model-number { display: inline-block; margin-left: 0.9em; font-size: 12px; }
+.section h2 { clear:both; padding: 0 0 12px 0; border-bottom:1px solid #dddddd; font-size: 22px; }
+
+
+
+
+/*-----------------------------------
+Language Select
+-----------------------------------*/
+/*base*/
+body.language .container { background-image: none; }
+body.language .header { float: none; width: 950px; height: 135px; }
+html* body.language .header { position: relative; }
+body.language .section { float: none; width: 900px; }
+/*header*/
+body.language .header h1 { padding: 20px 10px 0 10px; font-size: 34px; color: #101010; line-height: 1.0em; }
+html* body.language .header h1 { top: 24px; left: 25px; padding: 0px; font-size: 34px; color: #101010; line-height: 1.0em; position: absolute; }
+body.language .header h1 .logo { display: block; margin-bottom: 34px; }
+html* body.language .header h1 .logo { margin-bottom: 0px; }
+body.language .header h1 .logo img { width: 96px; height: 17px; vertical-align: bottom; }
+html* body.language .header h1 .logo img { padding: 0px; margin: 0px 0px 32px; }
+body.language .header h1 a.title { display: inline-block; margin-top: 0px; }
+body.language .header h1 a.title:hover {}
+/*Brand logo*/
+body.language .section h2 { height:16px; padding: 20px 0 0 1px; border: none; }
+/*list*/
+body.language .section ul.frame { width: 900px; overflow: hidden; }
+body.language .section ul.frame li { float: left; }
+body.language .section ul.frame li.img { width: 280px; padding: 0px 24px 0px 0px; }
+body.language .section ul.frame li.language-list ul { overflow: hidden; }
+body.language .section ul.frame li.language-list { width: 900px; margin-top: 20px; margin-bottom: 25px; padding: 0px;}
+body.language .section ul.frame li.language-list ul li { float: left; font-size: 16px; width: 280px; margin: 8px 20px 8px 0px; }
+body.language .section ul.frame li.img + li.language-list { width: 575px; margin-bottom: 25px; padding-left: 20px; border-left: #ddd solid 1px;}
+body.language .section ul.frame li.img + li.language-list ul li { float: left; font-size: 16px; width: 260px; margin: 8px 0px 8px 15px; }
+body.language .section ul.frame li.language-list ul li:last-child { margin-bottom: 0px; }
+
+
+/*-----------------------------------
+Top Page
+-----------------------------------*/
+.top .section h2 { padding: 19px 0 0 1px; border: none; }
+.top .main-visual { padding: 10px 0 20px; text-align: center; }
+/* Infromation Style */
+.top .information { margin-top: 19px; border-top: 1px solid #dddddd; }
+.top .information.pattern1 li { padding: 11px 10px 11px 3px; border-bottom: 1px solid #dddddd; }
+.top .information.pattern1 li a { font-size: 16px }
+.top .information.pattern1  li .date { display: block; padding-bottom: 3px; }
+.top .information.pattern2 p { padding: 14px 10px 7px 10px; line-height: 1.6; font-size: 16px; }
+.top .information.pattern2 p a { display: inline-block; padding-top: 7px; font-size: 14px; }
+.top .information.pattern3 .list { padding-bottom: 6px }
+.top .information.pattern3 .list li { padding: 16px 10px 15px 3px; border-bottom: 1px solid #dddddd; }
+.top .information.pattern3 .list li a { font-size: 16px }
+.top .information.pattern3 p { padding: 10px 10px 0 0; line-height: 1.5; }
+.top .information.pattern3 .notice { padding-top: 7px }
+.top .information.pattern3 .notice li { float: left; display: block; border-left: 1px solid #999999; }
+.top .information.pattern3 .notice li a { margin: 0 10px }
+.top .information.pattern3 .notice li.first { border-left: none }
+.top .information.pattern3 .notice li.first a { margin: 0 10px 0 0; }
+.top .information.pattern3 .notice li.first.last { border: none }
+.top .information.pattern3 .notice li.first.last a { margin: 0 }
+
+
+/*-----------------------------------
+Category Index / Contents Index
+-----------------------------------*/
+.category-index .guidance { padding: 26px 2px 16px 2px; }
+.category-index h3 { padding: 31px 0 4px 0; font-size: 18px; }
+.category-index .guidance p { line-height:1.5; font-size: 20px; }
+.category-index .guidance .guidance-list ul { margin:0 27px; list-style-type:disc; }
+.category-index .guidance .guidance-list li { margin:0; padding: 11px 0 1px 0; font-size: 14px; }
+
+.category-list .list { padding-bottom:3px;}
+.category-list .list li { padding: 16px 10px 15px 10px; border-bottom: 1px solid #dddddd; }
+.category-list .list li a { font-size: 16px }
+
+.subcategory-list .list { padding-bottom:3px;}
+.subcategory-list .list li { padding: 16px 10px 15px 10px; border-bottom: 1px solid #dddddd; }
+.subcategory-list .list li a { font-size: 16px }
+.subcategory-list .list li span { display: block; padding-top: 5px; line-height:1.4; font-size:14px; }
+.subcategory-list .list li span.uicontrol { display: inline; padding-top: 0px; line-height:1; font-size:16px; }
+
+.contents-index .guidance { padding: 26px 2px 16px 2px; }
+.contents-index .guidance p { line-height:1.5; font-size: 20px; }
+
+.contents-list h2 { margin-bottom:3px; }
+.contents-list h3 { padding-top:26px; font-size:18px; }
+.contents-list h4 { padding-top:11px; font-size:16px; }
+.contents-list .list { padding: 3px 0 6px 27px; list-style:disc; }
+.contents-list .list li { margin: 0; padding: 10px 0 0 0; }
+
+
+/*-----------------------------------
+Contents Page Nav
+-----------------------------------*/
+.contents .page-nav { float:left; text-align: left; }
+.contents .print { float:right; padding: 28px 2px 0 2px; text-align: right; }
+.contents .print a { display: inline-block; padding:0 0 0 21px; background: url(../img/icon_print.png) no-repeat left center; }
+
+
+/*-----------------------------------
+Contents Heading / Contents Caption
+-----------------------------------*/
+.contents h3 { padding-bottom: 10px; font-size: 18px; line-height: 1.4; }
+.contents h4 { padding: 20px 0 10px 0; font-size: 15px; line-height: 1.4; }
+.contents h5 { padding: 10px 0 6px 0; font-size: 14px; line-height: 1.4; }
+.contents h4 span.note { display: inline-block; padding: 3px; border: #cc0000 solid 1px;  border-radius: 3px; background: #cc0000; line-height: 1; font-size: 11px; color: #ffffff; }
+.mac .contents h4 span.note { padding-top: 4px; }
+.contents h4 span.hint { display: inline-block; padding: 3px; border: #666666 solid 1px; border-radius: 3px; background: #ffffff; line-height: 1; font-size: 11px; color: #333333; }
+.mac .contents h4 span.hint { padding-top: 4px; }
+.contents h5 span.note { display: inline-block; margin-bottom: 1px; padding: 2px; border: #cc0000 solid 1px; border-radius: 2px; background: #cc0000; line-height: 1; font-size: 10px; color: #ffffff; }
+.mac .contents h5 span.note { padding-top: 4px; }
+.contents h5 span.hint { display: inline-block; margin-bottom: 1px; padding: 2px; border: #666666 solid 1px; border-radius: 2px; background: ffffff; line-height: 1; font-size: 10px; color: #333333; }
+.mac .contents h5 span.hint { padding-top: 4px; }
+
+
+/*-----------------------------------
+Contents Paragraph
+-----------------------------------*/
+.contents .article { padding: 25px 2px 0 2px; line-height: 1.5; }
+.contents .article img { vertical-align: middle }
+.contents .article span.bold { font-weight: bold }
+.contents .article p.short-dsc { padding: 0 0 10px 0 }
+.contents .article p.option-text { padding-top: 5px; line-height: 1.45; font-size: 13px; }
+.contents .article p.supplemental { font-size: 12px; line-height: 1.45; color: #666666; }
+
+
+/*-----------------------------------
+Contents Image
+-----------------------------------*/
+/* Basic */
+.contents .article p.img-left img,
+.contents .article p.img-center img,
+.contents .article p.img-right img { margin: 15px 0 }
+.contents .article p.img-left { text-align: left }
+.contents .article p.img-center { text-align: center }
+.contents .article p.img-right { text-align: right }
+/* List Image */
+.contents .article ul li p.img-left img,
+.contents .article ul li p.img-center img,
+.contents .article ul li p.img-right img,
+.contents .article ol li p.img-left img,
+.contents .article ol li p.img-center img,
+.contents .article ol li p.img-right img { margin: 10px 0 }
+.contents .article ul li p.img-left,
+.contents .article ol li p.img-left { text-align: left; }
+.contents .article ul li p.img-center,
+.contents .article ol li p.img-center { text-align: center; }
+.contents .article ul li p.img-right,
+.contents .article ol li p.img-right { text-align: right; }
+
+
+/*-----------------------------------
+Contents List / Page Link / Contents Table
+-----------------------------------*/
+.contents .nav ul,
+.contents .article ul { padding: 0 0 0 1.5em; list-style-type:disc; line-height:1.5; }
+.contents .article ol { padding: 0 0 0 1.5em; list-style-type:decimal; line-height:1.5; }
+/* Basic */
+.contents .article ul.list li { padding-bottom: 10px; }
+.contents .article ul.list li:last-child { padding-bottom: 0px; }
+/* Step */
+.contents .article ol.step-list { padding-top: 12px }
+.contents .article ol.step-list li { padding-bottom: 15px }
+.contents .article ol.step-list li:last-child { padding-bottom: 0 }
+/* Small Size01 */
+.contents .article ul.small-list { padding-bottom: 4px; line-height: 1.45; font-size: 13px; }
+.contents .article ul.small-list li { padding: 2px 0 4px 0; }
+.contents .article ul.small-list li:last-child { padding-bottom: 0 }
+/* Name */
+.contents .article ol.step-list ul.name-List { padding-top: 5px; line-height: 1.45; font-size: 13px; }
+.contents .article ol.step-list ul.name-List li { padding-bottom: 6px }
+/* Option */
+.contents .article ul li ul.option-list { padding: 0; }
+.contents .article ul li ul.option-list li { padding: 5px 0px 0px 20px; list-style: none; background: url(../img/list_line.png) no-repeat left 0.25em; line-height: 1.45; font-size: 13px; }
+.contents .article ul.small-list li ul.option-list li:last-child { padding-bottom: 0 }
+/* Page link */
+.contents .nav { padding: 25px 2px 0 2px }
+.contents .nav ul li { padding-bottom: 2px }
+.contents .nav ul li:last-child { padding-bottom: 0 }
+/* Contents Table */
+.contents .article table { margin: 20px 0 2px 0 }
+.contents .article table th,
+.contents .article table td { padding: 10px; border: #c7c7c7 solid 1px; vertical-align: middle; }
+.contents .article table th { font-weight: bold; background: #e6e6e6; }
+.contents .article table th.center { text-align: center }
+
+
+/*-----------------------------------
+Search Page
+-----------------------------------*/
+.search h2 { clear:both; padding: 0 0 12px 0; border-bottom:1px solid #dddddd; font-size: 22px; }
+.search h2 span { padding:0 5px; font-size: 14px; font-weight:normal; }
+.search .control-panel { overflow: hidden; padding: 12px 0 13px 0; border-bottom: 1px solid #dddddd; line-height:1; color: #e0e0e0; }
+* html .search .control-panel { height:1em; line-height:1.2; }
+.search .control-panel .category-limits { float: left }
+.search .control-panel .sorting { float: right }
+.search .control-panel li { float:left; padding:0 7px; }
+.search .control-panel .category-limits li { border-right: 1px solid #999999; }
+.search .control-panel .category-limits li.first { padding: 0 7px 0 0;}
+.search .control-panel .category-limits li.last { border-right: none;}
+.search .control-panel .sorting li { border-left: 1px solid #999999; }
+.search .control-panel .sorting li.first { border-left: none;}
+.search .control-panel .sorting li.last { padding: 0 0 0 7px;}
+.search .control-panel a.active { color: #585858; cursor: text; }
+.search .control-panel a.active:hover { text-decoration: none }
+.search .list { clear:both; padding: 3px 0 38px 0; border-bottom: 1px solid #d1d1d1; }
+.search .list li { padding-top: 25px; line-height: 1.4; }
+.search .list li a { font-size: 16px }
+.search .list li span { display: block; padding: 4px 0 0 10px; }
+.search .list li span.url { font-size: 12px; color: #006600; }
+.search .keyword { overflow: hidden; padding: 20px 0;}
+.search .keyword h3 { padding-bottom:8px; font-size:16px; }
+.search .keyword ul { overflow: hidden; list-style-type:disc; }
+.search .keyword li { float: left; margin: 0 25px; padding-top: 8px; width: 245px; }
+* html .search .keyword li { width: 225px; }
+.search .turn-page { clear:both; padding-top: 20px; border-top: 1px solid #d1d1d1;  text-align: center; }
+.search .turn-page a { display: inline-block; margin: 0 2px; padding: 0 5px 0 6px; border: 1px solid #d4d4d4; vertical-align:bottom; line-height:20px; cursor:pointer; }
+.search .turn-page a.left,
+.search .turn-page a.right { padding: 4px 0; }
+.search .turn-page a.left img,
+.search .turn-page a.right img { float:left; }
+.search .turn-page a:hover,
+.search .turn-page a.active { background-color: #f0f0f0; text-decoration: none; color: #333333; }
+.search .turn-page a.active { font-weight:bold; }
+.search .turn-page .item-number { padding-top: 8px; }
+.search .guidance { padding: 26px 2px 16px 2px; }
+.search h3 { padding: 1px 0 24px 0; font-size: 18px; }
+.search .guidance p { line-height:1.5; font-size: 16px; }
+.search .guidance ul { margin:3px 20px 0 27px; list-style-type:disc; }
+.search .guidance li { padding: 11px 0 1px 0; }
+
+/* Notfound Page */
+.notfound .guidance { padding: 26px 2px 16px 2px; }
+.notfound .guidance p { line-height:1.5; font-size: 16px; }
+.notfound .guidance ul { margin: 6px 0 40px 27px; list-style-type:disc; font-size:16px; }
+.notfound .guidance li { padding-top: 12px;}
+
+
+/*-----------------------------------
+Parts Common
+-----------------------------------*/
+/* Search Box */
+.search-box { position: absolute; top: 15px; right: 25px; width: 196px; height: 30px; }
+.search-box .search-form { position: absolute; top: 5px; left: 0; padding: 2px 5px 0 5px; width: 134px; height: 28px; border: none; background: #ffffff url(../img/form_search.png) no-repeat left top; line-height:28px; font-size: 16px; color:#999999; }
+.search-box .search-form { padding-top: 3px\9; height: 27px\9; line-height:27px\9; }
+:root .search-box .search-form { padding-top: 2px \0/; height: 28px \0/; line-height:28px \0/; }
+.search-box .search-form.active { color: #000000 }
+.search-box .search-button { position: absolute; top: 5px; right: 0; width: 52px; height: 30px; -moz-border-radius: 0px 1px 1px 0px; -webkit-border-radius: 0px 1px 1px 0px; border-radius: 0px 1px 1px 0px; cursor: pointer; }
+.search-box.foot { position: static; margin: 14px 0 2px 0; padding: 1px; width: 596px; height: 40px; border: 1px solid #dddddd; }
+.search-box.foot .inner { position: relative; height: 40px; background: #e6e6e6; }
+.search-box.foot .search-form { left: 160px; width: 209px; background: #ffffff url(../img/form_search_foot.png) no-repeat left top; }
+.search-box.foot .search-button { right: 160px; width: 57px; }
+.search-box { z-index: 9999 }
+/* Search Suggest */
+#search-suggestions { display: none; position: absolute; width: 143px; border: 1px solid #bbbbbb; background: #ffffff; z-index: 9999; }
+#search-suggestions li { border-top: 1px solid #dddddd }
+#search-suggestions li:first-of-type { border-top: none }
+#search-suggestions a { display: block; padding: 5px 10px; color: #333333; z-index: 10000; }
+#search-suggestions a:hover { background-color: #dfeeff; text-decoration: none; }
+#ScreenOverlay { -webkit-tap-highlight-color: rgba(0,0,0,0); position: absolute; left: 0; width: 100%; height: 100%; background-color: transparent; z-index: 5; }
+/* Related Topic */
+.related-topic { margin: 43px 0 2px 0; border: 1px solid #dddddd; }
+* html .related-topic { width: 598px }
+.related-topic h3 { padding: 6px 8px; border: 1px solid #ffffff; background: #e6e6e6; font-size: 14px; }
+.related-topic ul { padding: 6px 0 17px 0; border-top: 1px solid #dddddd; list-style-type: disc; font-size: 14px; }
+.related-topic li { margin: 10px 12px 0 30px }
+/* Page Nav */
+.page-nav { overflow: hidden; padding: 29px 0 16px 0; color: #f1f1f1; }
+.page-nav li { float: left; display: block; border-left: 1px solid #999999; line-height: 1.2; }
+* html .page-nav { height:24px; }
+* html .page-nav li { line-height: 1.2 }
+.page-nav li a { margin: 0 7px }
+.page-nav li.back { border-left: none }
+.page-nav li.back a { margin: 0 7px 0 0; }
+.return-pagetop { clear: both; padding: 10px 4px 5px 4px; text-align: right; font-size: 12px; }
+.return-pagetop a { display: inline-block }
+.return-pagetop a img { vertical-align: top }
+
+
+/*-----------------------------------
+Term Page
+-----------------------------------*/
+.terms .contents h2  { overflow: hidden; }
+.terms .contents h2 span.publication-year { display: inline-block; margin-top: 13px; font-size: 10px; text-align: right; float: right; }
+.terms .contents .article ul { margin: 0px; padding: 0px; }
+.terms .contents .article ul li { margin: 0px; padding: 0px 0px 16px 1.5em; list-style: none; background: url(../img/list_square.png) no-repeat 3px 5px; }
+.terms .contents .article ul li span { margin: 0px; padding: 0px 0px 0px 1.0em; }
+.terms .contents .article ul li h4 { margin: 0px; padding: 0px 0px 10px ; }
+.terms .contents .article ul li ul li { margin: 0px 0px 0px 1.2em;  padding: 0px 0px 5px; list-style: disc; background: none; }
+.terms .contents .article ul table { margin: 0px; border-color: #c7c7c7; margin-bottom: 5px; }
+.terms .contents .article ul table th { width: 30%; text-align: center; font-weight: normal; vertical-align: middle; }
+.terms .contents .article ul table td { font-weight: normal; vertical-align: middle; }
+.terms .contents .article ul table td ul { padding: 5px 0px 5px 1.5em; }
+.terms .contents .article ul table td ul li { padding: 4px 0px 2px; }
+.terms .contents .article ul table td ul li span { display: block; font-size: 11px; line-height: 1.2em; text-indent: -1.1em; }
+.terms .footer .nav a { color: #585858; text-decoration: none; }
+.terms .footer .nav a:hover { text-decoration: none }
+
+/*-----------------------------------
+Footer
+-----------------------------------*/
+.footer { position:absolute; _position:static; left: 0; bottom:0; margin: 0 auto; padding-top: 5px; width: 275px; width: 950px; _width:950px; height:30px; text-align: left; font-size:14px; color: #666666; overflow: hidden; }
+.footer .copyright { margin: 0 0 0 20px; font-size:12px; color:#666666; float: left; }
+.footer .nav { margin: 0 25px 0 0; font-size:12px; color:#666666; float: right; }

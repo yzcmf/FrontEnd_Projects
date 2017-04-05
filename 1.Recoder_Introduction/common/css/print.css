@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*
+---------------------------------------
+# Device: PC
+# File: css/print.css
+# Version: 1.2
+# Update: 2012.10.24
+---------------------------------------
+*/
+
+/*-----------------------------------
+Common
+-----------------------------------*/
+body { background: #ffffff; color: #000000; }
+.container { padding:25px 30px; width: 740px; background: none; }
+a:link,
+a:visited { text-decoration:underline; color: #000000; }
+img { border: 0 }
+h1 a.title,
+.nav,
+.search-box,
+#search-suggestions,
+.page-nav,
+.print,
+.return-pagetop,
+.related-topic,
+.footer { display: none !important }
+.header,
+.section { float: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; background: #ffffff; }
+table,
+th,
+td { border-collapse: collapse; border-spacing: 0; }
+
+
+/*-----------------------------------
+Menu Area (left)
+-----------------------------------*/
+.header h1 { padding: 20px 0 25px 0 }
+.section { position:static }
+.section h1 { padding:10px 0 15px 0; font-size:16px;}
+.section h1 .category-name{ display: inline-block; margin:0; padding:0; font-size:16px; }
+.section h1 .model-name { display: inline-block; margin: 0 0 0 0.75em; padding:0; font-size:16px; }
+.section h1 .model-name .model-number { display: inline-block; margin-left: 1em; font-size: 12px; }
+.section h2 { border-color:#333; padding: 0px 0px 18px; font-size: 26px; }
+
+
+/*-----------------------------------
+Contents Heading
+-----------------------------------*/
+.contents h3 { font-size: 21px; }
+.contents h4 { font-size: 19px; }
+.contents h5 { font-size: 18px; }
+.contents h4 span.note { font-size: 13px; }
+.contents h4 span.hint { border: #000000 solid 1px; font-size: 13px; color: #000; }
+.contents h5 span.note { font-size: 12px; }
+.contents h5 span.hint { border: #000000 solid 1px; font-size: 12px; color: #000; }
+
+
+/*-----------------------------------
+Contents Paragraph
+-----------------------------------*/
+.contents .article { font-size: 120%; }
+.contents .article p.option-text { font-size: 16px; }
+.contents .article p.supplemental { font-size: 15px; color:#666666; }
+/* Basic */
+.contents .article ul.list { font-size: 17px; }
+/* Small Size 01 */
+.contents .article ul.small-list { font-size: 15px; }
+/* Step */
+.contents .article ol.step-list { font-size: 17px; }
+/* Name */
+.contents .article ol.step-list ul.name-List { font-size: 16px;}
+
+
+/*-----------------------------------
+Contents List / Page Link / Contents Table
+-----------------------------------*/
+/* Option */
+.contents .article ul li ul.option-list li { font-size: 16px; }
+/* Contents Table */
+.contents .article table th { font-size: 17px; }
+.contents .article table td { font-size: 17px; }
