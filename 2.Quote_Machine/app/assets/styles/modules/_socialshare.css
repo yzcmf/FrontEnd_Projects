@@ -1,0 +1,26 @@
+.social-share {
+  text-align: center;
+  margin: 0 auto;
+}
+.google-plus::before,
+.tumblr::before,
+.twitter::before,
+.next::after {
+  font-family: 'FontAwesome';
+  font-size: 3rem;
+  color: $mainBlack;
+  margin: 2px;
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
+}
+.google-plus::before {
+  content: '\f0d4';
+}
+.tumblr::before {
+  content: '\f174';
+}
+.twitter::before {
+  content: '\f081';
+}

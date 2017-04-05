@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  margin: 125px auto;
+  max-width: 800px;
+  width: 90%;
+
+  & h1 {
+    font-family: 'Bitter', serif;
+    font-size: 2.5rem;
+    color: $mainBlack;
+    margin: 0 auto 30px;
+    text-align: center;
+    border-top: 2px solid $mainBlack;
+    border-bottom: 2px solid $mainBlack;
+
+    @media (max-width: 480px) {
+      font-size: 1.75rem;
+    }
+  }
+}

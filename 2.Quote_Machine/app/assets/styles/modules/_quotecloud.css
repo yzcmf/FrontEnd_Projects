@@ -1,0 +1,68 @@
+.quote-cloud {
+  position: relative;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  z-index: 1;
+  height: 450px;
+  height: 100%;
+  background: rgba(250,250,250, 0.7);
+  padding: 20px 40px;
+  /* give the corners a large curve */
+  border-radius: 54px;
+  /* style the text */
+  letter-spacing: 0.07em;
+
+  @media (min-width: 320px) {
+    min-height: 350px;
+
+    &::after {
+        left: 42%;
+    }
+  }
+
+  & #quote,
+  & #author {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  & #quote {
+    font-size: 1.2rem;
+    margin: 90px auto 20px;
+
+    @media (min-width: 480px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  & #author {
+    font-size: 1rem;
+    margin: 20px auto;
+    font-weight: normal;
+
+    @media (min-width: 480px) {
+      font-size: 1.2rem;
+    }
+
+
+  }
+
+  /* small circle */
+  /* created exactly same way as large circle except with smaller width, height, and border radius */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -80px;
+    left: 42%;
+    border-style: solid;
+    border-width: 80px 40px 0;
+    border-color: #fafafa transparent;
+    opacity: 0.7;
+    display: block;
+    width: 0;
+  }
+}

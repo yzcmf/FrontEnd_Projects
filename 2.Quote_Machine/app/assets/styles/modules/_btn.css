@@ -1,0 +1,18 @@
+.next {
+  margin: 0 0 60px 0;
+
+  &::after {
+    content: '\f0a4';
+    margin: 0 0 60px 0;
+  }
+}
+
+.next,
+a.btn {
+  float: right;
+}
+
+a.btn {
+  margin-top: 16px;
+  cursor: pointer;
+}
