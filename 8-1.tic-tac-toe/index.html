@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic Tac Toe</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="ticTacToe">
+
+<div class="game-box-wrapper">
+
+    <div class="game-box m-x-auto" ng-controller="GameCtrl">
+        <header class="game-box-header text-center p-y">
+            <h1>Tic Tac Toe</h1>
+            <h2>Created by <a href="http://voreny.bitbucket.org/">Voreny</a></h2>
+        </header>
+
+        <div class="game-box-controls-wrapper">
+            <div class="game-box-controls m-x-auto text-center">
+                <div class="controls-button controls-x">
+                    <button type="button" class="control-button active" ng-class="{'active': playerSign == 1}" ng-click="changeSign(1)">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="controls-button controls-o">
+                    <button type="button" class="control-button"  ng-class="{'active': playerSign == -1}" ng-click="changeSign(-1)">
+                        <i class="fa fa-circle-o"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-box-board">
+
+            <div class="board-row clearfix" ng-repeat="row in board track by $index">
+                <div class="board-tile" ng-click="playTile($parent.$index, $index)" ng-repeat="tile in row track by $index" ng-switch="board[$parent.$index][$index]" ng-class="[highlighted[$parent.$index][$index]]">
+                    <div class="board-tile-image blank" ng-switch-when="0"></div>
+                    <!--<img src="http://placehold.it/200x200/ffffff/000000" alt="Tile" class="board-tile-image blank" ng-switch-when="0">-->
+                    <img src="assets/images/sign-x.png" alt="X" class="board-tile-image x" ng-switch-when="1">
+                    <img src="assets/images/sign-o.png" alt="O" class="board-tile-image o" ng-switch-when="-1">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="message p-y-lg" ng-controller="MessageCtrl" ng-class="[messageHighlightClass, {'active': messageActive}]">
+    <h1 class="display-1">{{messageContents}}</h1>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.4/angular-animate.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="assets/js/tile.js"></script>
+<script src="assets/js/message-controller.js"></script>
+<script src="main.js"></script>
+<script src="resize-handler.js"></script>
+</body>
+</html>

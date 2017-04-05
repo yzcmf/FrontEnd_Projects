@@ -1,0 +1,23 @@
+.game-box-wrapper {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  @media (min-width: 34em) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.game-box {
+  //box-shadow: 5px 2px 5px 2px rgba(255, 255, 255, 0.6);
+  border-radius: $borderRadius;
+
+  width: 100%;
+  @media (min-width: 20em) {
+    width: 20em;
+  }
+
+  @media (min-width: 48em) {
+    width: 34em;
+  }
+}

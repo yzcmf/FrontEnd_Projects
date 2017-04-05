@@ -1,0 +1,372 @@
+<html>
+<head>
+  <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+  <meta content='utf-8' http-equiv='encoding'>
+  <title>Chad Sheets - Javascript Calculator</title>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300);
+    body {
+      font-family: Open Sans, Helvetica, Arial;
+      font-size: 3em;
+      font-weight: lighter;
+      color: #222222;
+      background-color: #EFEFEF;
+      text-align: center;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    } #outer, #inner {
+        border-radius: 50%;
+        border: 6px solid #121212;
+        margin: auto;
+      } #outer {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 320px;
+          height: 320px;
+          padding: 32px 42px 42px 32px;
+          background-color: #B2B2B2;
+        } #inner {
+            width: 100%;
+            height: 100%;
+            background-color: #cccce1;
+          } #inner div {
+              padding-top: 60px;
+            } #tr, #tl, #br, #bl {
+                font-size: 0.6em;
+                background-color: #222222;
+                position: absolute;
+                z-index: -9999;
+                width: 50%;
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+              } #tr {
+                  border-bottom: 6px solid #121212;
+                  border-left: 6px solid #121212;
+                  background-color: #f5364e;
+                  top: 0;
+                  right: 0;
+                } .tr-on {
+                    background: #ffebed;
+                    background: -moz-radial-gradient(ellipse farthest-corner at bottom left, #ffebed 10%, #f5364e 80%);
+                    background: -webkit-radial-gradient(ellipse farthest-corner at bottom left, #ffebed 10%,#f5364e 80%);
+                    background: radial-gradient(ellipse farthest-corner at bottom left, #ffebed 10%,#f5364e 80%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffebed', endColorstr='#f5364e',GradientType=1 );
+                  } #tl {
+                      background-color: #5ada8d;
+                      top: 0;
+                      left: 0;
+                    } .tl-on {
+                        background: #5ada8d;
+                        background: -moz-radial-gradient(ellipse farthest-corner at bottom right,  #ebfff3 10%, #5ada8d 80%);
+                        background: -webkit-radial-gradient(ellipse farthest-corner at bottom right,  #ebfff3 10%,#5ada8d 80%);
+                        background: radial-gradient(ellipse farthest-corner at bottom right,  #ebfff3 10%,#5ada8d 80%);
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ada8d', endColorstr='#ebfff3',GradientType=1 );
+                      } #br {
+                          background-color: #3bdafc;
+                          bottom: 0;
+                          right: 0;
+                        } .br-on {
+                            background: #ebfbff;
+                            background: -moz-radial-gradient(ellipse farthest-corner at top left,  #ebfbff 10%, #3bdafc 80%);
+                            background: -webkit-radial-gradient(ellipse farthest-corner at top left,  #ebfbff 10%,#3bdafc 80%);
+                            background: radial-gradient(ellipse farthest-corner at top left,  #ebfbff 10%,#3bdafc 80%);
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebfbff', endColorstr='#3bdafc',GradientType=1 );
+                          } #bl {
+                              border-top: 6px solid #121212;
+                              border-right: 6px solid #121212;
+                              background-color: #e9ee74;
+                              bottom: 0;
+                              left: 0;
+                            } .bl-on {
+                                background: #e9ee74;
+                                background: -moz-radial-gradient(ellipse farthest-corner at top right, #fefcea 10%, #e9ee74 80%);
+                                background: -webkit-radial-gradient(ellipse farthest-corner at top right, #fefcea 10%,#e9ee74 80%);
+                                background: radial-gradient(ellipse farthest-corner at top right, #fefcea 10%,#e9ee74 80%);
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9ee74', endColorstr='#fefcea',GradientType=1 );
+                              } .toggle, .interface {
+                                  line-height: 75px;
+                                  font-size: 0.4em;
+                                  color: #222222;
+                                } .toggle {
+                                    font-size: 0.9em;
+                                    cursor: pointer;
+                                    padding: 0px 10px;
+                                    box-shadow: 1px 1px 4px;
+                                    border-radius: 40%;
+                                  } .interface {
+                                      line-height: 25px;
+                                    } #count {
+                                        font-family: "Lucida Console", Monaco, monospace;
+                                        color: #CCCCCC;
+                                        padding: 5px 10px;
+                                        font-size: 0.65em;
+                                        border-radius: 10px;
+                                        border: 2px solid #121212;
+                                        background-color: #FFFFFF;
+                                      } #t1, #t2, #t3 {
+                                          background-color: #D2D2D2;
+                                        }
+  </style>
+  <script>
+      class Simon {
+          constructor() {
+              //console.log('construct');
+              this.on = false;
+              this.strict = false;
+              this.listening = false;
+              this.showing = false;
+              this.cpuMoves = [];
+              this.userMoves = [];
+              this.level = 0;
+              this.initAudio();
+          }
+          startGame() {
+              //console.log('game started');
+              this.cpuMoves.length = 0;
+              this.userMoves.length = 0;
+              this.listening = false;
+              this.nextLevel();
+          }
+          nextLevel() {
+              //console.log('Level Complete');
+              this.cpuMoves.push(this.chooseQuadrant());
+              this.level = this.cpuMoves.length;
+              if(this.level == 20){
+                  this.level = 0;
+                  displayVictory();
+              } else {
+                  this.displayMoves();
+              }
+          }
+          checkUserMove(id) {
+              this.userMoves.push(id);
+              for(var i=0; i<this.userMoves.length; i++){
+                  if(this.userMoves[i] != this.cpuMoves[i]){
+                      //console.log(this.userMoves[i] + ' != ' + this.cpuMoves[i]);
+                      toggleListening();
+                      this.userMoves = [];
+                      if(this.strict){
+                          this.startGame();
+                          return false;
+                      } else {
+                          this.displayMoves();
+                          return false;
+                      }
+                  }
+              }
+              if(this.userMoves.length == this.cpuMoves.length) {
+                  toggleListening();
+                  this.nextLevel()
+              }
+              return true;
+          }
+          displayMoves() {
+              this.showing = true;
+              function callbackDepress(move){
+                  return function(){ depressQuadrent(move); }
+              }
+              function callbackRelease(move){
+                  return function(){ releaseQuadrent(move); }
+              }
+              function callbackListenToUser(){
+                  return function(){ toggleShowing(); }
+              }
+              for(var i=0; i<this.cpuMoves.length; i++){
+                  //console.log('this.cpuMoves: ' + i + ', ' + this.cpuMoves[i]);
+                  setTimeout(callbackDepress(this.cpuMoves[i]), 2000 + i*800);
+                  setTimeout(callbackRelease(this.cpuMoves[i]), 2000 + i*800 + 400);
+              }
+              setTimeout(callbackListenToUser(), 2000 + this.cpuMoves.length*800);
+              setTimeout(updateCounter, 2000);
+          }
+          chooseQuadrant() {
+              switch(Math.floor(Math.random() * 4)){
+                  case 0: return 'tr';
+                  case 1: return 'tl';
+                  case 2: return 'br';
+                  case 3: return 'bl';
+              }
+              //console.log('Didnt recieve quadrent');
+          }
+          initAudio() {
+              this.context = new AudioContext;
+              this.osc = this.context.createOscillator();
+              this.osc.start(0);
+              this.amp = this.context.createGain();
+              this.amp.gain.value = 0;
+              this.osc.connect(this.amp);
+              this.amp.connect(this.context.destination);
+          }
+          tone() {
+              if(arguments.length == 1) {
+                  this.osc.frequency.value = arguments[0];
+                  this.amp.gain.value = 1;
+              } else {
+                  this.amp.gain.value = 0;
+              }
+          }
+      }
+      var s = new Simon();
+      $( document ).ready(function() {
+//console.log(Math.floor(Math.random() * 4));
+          $('#t1, #t2, #t3').mousedown(function () {
+              $(this).css('box-shadow', '1px 1px 2px');
+          }).mouseup(function () {
+              $(this).css('box-shadow', '1px 1px 4px');
+              if($(this).attr('id') == 't1'){
+                  togglePlayState();
+              } else if($(this).attr('id') == 't2' && s.on) {
+                  if(!s.showing) {
+                      s.level = 0;
+                      updateCounter();
+                      blinkCounter();
+                      setTimeout(function(){s.startGame();}, 800);
+                  }
+              } else if(s.on) { toggleStrict(); }
+          });
+          $('#tr, #tl, #br, #bl').mousedown(function () {
+              if(s.on && s.listening && ! s.showing) {switch($(this).attr('id')) {
+                  case 'tl': depressQuadrent('tl'); break;
+                  case 'tr': depressQuadrent('tr'); break;
+                  case 'br': depressQuadrent('br'); break;
+                  case 'bl': depressQuadrent('bl'); break;
+                      break; } }
+          }).mouseup(function () {
+              s.tone(); releaseQuadrent($(this).attr('id'));
+          });
+      });
+      function togglePlayState(){
+          if(s.on) {
+              s = new Simon();
+              $('#t1, #t2, #t3').css('background-color', '#D2D2D2');
+              $('#count').css('color', '#CCCCCC');
+              updateCounter();
+          } else {
+              s.on = true;
+              $('#t1').css('background-color', '#3193de');
+              $('#t2').css('background-color', '#fc0102');
+              $('#count').css('color', '#222222');
+          }
+      }
+      function toggleStrict(){
+          if(s.on && ! s.strict) {
+              s.strict = true;
+              $('#t3').css('background-color', '#ffff00');
+          } else {
+              s.strict = false;
+              $('#t3').css('background-color', '#D2D2D2');
+          }
+      }
+      function toggleListening() {
+          if(s.listening || ! s.on) {
+              //console.log('Stopped Listening for user moves - ' + s.listening + ' - ' + s.on);
+              s.userMoves = [];
+              s.listening = false;
+          } else if(s.showing) {
+              s.listening = false;
+          } else {
+              //console.log('Listening for User Moves');
+              s.listening = true;
+          }
+      }
+      function toggleShowing() {
+          s.showing = false;
+          toggleListening();
+      }
+      function blinkCounter(){
+          if(s.on) {
+              setTimeout(function(){$('#count').css('color', '#CCCCCC');}, 150);
+              setTimeout(function(){$('#count').css('color', '#222222');}, 300);
+              setTimeout(function(){$('#count').css('color', '#CCCCCC');}, 450);
+              setTimeout(function(){$('#count').css('color', '#222222');}, 600);
+          }
+      }
+      function updateCounter(){
+          if(s.level == 0) {
+              $('#count').text('--');
+          } else if(s.level < 10) {
+              $('#count').text('0' + s.level);
+          } else {
+              $('#count').text(s.level);
+          }
+      }
+      function depressQuadrent(id){
+          switch(id){
+              case 'tr': s.tone(209); break;
+              case 'tl': s.tone(252); break;
+              case 'br': s.tone(415); break;
+              case 'bl': s.tone(310); break; }
+          $('#' + id).addClass(id + '-on');
+          //console.log('pressed: ' + id);
+      }
+      function releaseQuadrent(id){
+          if(s.listening && ! s.showing) {
+              if(! s.checkUserMove(id)) {
+                  s.tone(114); /* Error Tone */
+                  setTimeout(function(){s.tone();}, 600);
+                  //console.log('User ERROR');
+              } else {
+                  s.tone();
+              }
+          } else {
+              s.tone();
+          }
+          $('#' + id).removeClass(id + '-on');
+          //console.log('released');
+      }
+      function displayVictory() {
+          function callbackDepress(id){
+              return function(){ depressQuadrent(id); }
+          }
+          function callbackRelease(id){
+              return function(){ releaseQuadrent(id); }
+          }
+          function callbackRestart(){
+              return function(){ $('#t2').click(); }
+          }
+          //console.log('Victory');
+          for(i=1; i<5; i++){
+              setTimeout(callbackDepress('tl'), 100 + 425*i);
+              setTimeout(callbackRelease('tl'), 150 + 425*i);
+              setTimeout(callbackDepress('tr'), 200 + 425*i);
+              setTimeout(callbackRelease('tr'), 250 + 425*i);
+              setTimeout(callbackDepress('bl'), 300 + 425*i);
+              setTimeout(callbackRelease('bl'), 350 + 425*i);
+              setTimeout(callbackDepress('br'), 400 + 425*i);
+              setTimeout(callbackRelease('br'), 450 + 425*i);
+          }
+      }
+      //    //console.log(target + ' ' + diff);
+  </script>
+</head>
+<body>
+<div id='outer'>
+  <div id='inner'>
+    <div>
+      <span id="title">Simon</span><br>
+      <span class="interface">
+        On <span id='t1' class="toggle">&nbsp;</span> &nbsp;&nbsp;
+        Start <span id='t2' class="toggle">&nbsp;</span> &nbsp;&nbsp;
+        Strict <span id='t3' class="toggle">&nbsp;</span>
+      <br><br></span>
+      <span id='count'>--</span>
+    </div>
+  </div>
+</div>
+<div id='tl'></div>
+<div id='br'></div>
+<div id='tr'></div>
+<div id='bl'></div>
+</body>
+</html>

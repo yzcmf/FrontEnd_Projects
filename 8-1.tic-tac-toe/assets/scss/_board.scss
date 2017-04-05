@@ -1,0 +1,92 @@
+.game-box-board {
+  width: 100%;
+  overflow: hidden;
+  @include borderRadiusBottom($borderRadius);
+
+  background-color: #ecf0f1;
+  position: relative;
+
+  user-select: none;
+}
+
+
+
+
+// Rows
+.board-row {
+  width: 100%;
+
+  border-bottom: solid 1px black;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+
+
+// Tiles
+.board-tile {
+  width: 33.33%;
+  float: left;
+
+  cursor: pointer;
+
+  border-right: solid 1px;
+
+  &:last-of-type {
+    border-right: none;
+    width: 33.341%;
+  }
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+// Winning tile background settings
+.board-tile {
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+.board-tile.unclickable {
+  background-color: $unclickableColor;
+}
+
+.board-tile.win {
+  background-color: $winColor;
+}
+
+.board-tile.lose {
+  background-color: $loseColor;
+}
+
+
+
+// Images
+.board-tile-image {
+  width: 100%;
+  height: auto;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: top 0.5s linear;
+}
+
+// ngSwitch animations
+.board-tile-image.ng-leave.ng-leave-active {
+  top: 100%;
+}
+
+.board-tile-image.ng-leave,
+.board-tile-image.ng-enter.ng-enter-active {
+  top: 0;
+}
+
+.board-tile-image.ng-enter {
+  top: -100%;
+}

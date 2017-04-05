@@ -1,0 +1,69 @@
+.game-box-controls-wrapper {
+  width: 100%;
+  overflow: auto;
+
+  background-color: #2abd68;
+
+  border-bottom: solid 1px black;
+  position: relative;
+}
+
+.game-box-controls-wrapper:before, .game-box-controls-wrapper:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.game-box-controls-wrapper:before {
+  box-shadow: inset 0 10px 10px -10px black;
+}
+
+.game-box-controls-wrapper:after {
+  box-shadow: inset 0 -10px 10px -10px black;
+}
+
+.game-box-controls {
+  width: 50%;
+}
+
+.controls-button {
+  float: left;
+  width: 50%;
+
+  border-left: solid 1px black;
+
+  &:first-of-type {
+    box-shadow: -2px 0 5px black;
+  }
+
+  &:last-of-type {
+    box-shadow: 2px 0 5px black;
+    border-right: solid 1px black;
+  }
+}
+
+button.control-button {
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  border: none;
+  background-color: darken(#3498db, 10%);
+  color: darken(#2c3e50, 30%);
+
+  transition: all 0.5s linear;
+
+  font-size: 2em;
+}
+
+button.control-button.active {
+  background-color: #3498db;
+  color: darken(#2c3e50, 60%);
+  position: relative;
+  z-index: 1;
+}
